@@ -1,0 +1,56 @@
+﻿@model Vet.Models.ViewModels.TipoMascotaViewModel
+<h3 class="text-center" style="margin:30px">Ingresar nueva ficha</h3>
+
+<div class="card">
+    <div class="card-header">
+    <h6>NuevaFicha</h6>
+    </div>
+    <div class="card-body">
+        <form asp-action="Create" method="post">
+            <div class="row mb-1" style="padding-bottom:10px">
+              <div class="col-2">
+                  <label for="Nombre_Mascota">Nombre mascota: </label>
+              </div>
+              <div class="col-3">
+                    <input placeholder="Kayser" name="Nombre_Mascota"  class="form-control" required />
+              </div>
+               <div class="col-2">
+                  <label for="NombreDueño">Nombre dueño: </label>
+              </div>
+              <div class="col-3">
+                    <input placeholder="Juan" name="NombreDueño" class="form-control" required />
+              </div>
+            </div>
+            <div class="row mb-2" style="padding-bottom:10px">
+              <div class="col-2">
+                  <label for="FechaNacimiento">Fecha nacimiento:</label>
+              </div>
+              <div class="col-3">
+                    <input type="datetime" placeholder="09/06/2020" name="FechaNacimiento" class="form-control" required />
+              </div>
+               <div class="col-2">
+                  <label for="Telefono">Telefono contacto: </label>
+              </div>
+              <div class="col-3">
+                    <input name="Telefono" placeholder="+56931159645" type="tel" pattern="\+([0-9]{3}\) [0-9]{3}[0-9]{3}[0-9]{2}" class="form-control"  required/>
+              </div>
+            </div>
+             <input name="Fecha" type="hidden" class="form-control" value="@DateTime.Today">
+            <div class="row mb-3">
+                <div class="col-2">
+                <label for="TipoMascota">Tipo mascota:</label>
+                </div>  
+                <div class="col-3">
+                
+                        <select required class="form-control d-inline-block" asp-items="ViewBag.TipoMascota" name="TipoMascota">
+                            
+                        <option selected disabled> Seleccionar </option>
+                        </select>
+                </div>
+                <div style="margin-left:360px">
+                <button type="submit" class="btn btn-primary">Guardar</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

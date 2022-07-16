@@ -1,0 +1,34 @@
+﻿@model Vet.Models.ViewModels.MascotaViewModel
+
+<h3 class="text-center" style="margin:20px">Ver ficha</h3>
+
+<div class="card">
+    <div class="card-header">
+    <h6>Ver Ficha</h6>
+    </div>
+    <div class="card-body">
+        <form>
+
+        @foreach (var item in Model.mascotas)
+       {    <h3 style="text-align:center; ">@item.Name</h3>
+           <div class="container" style="padding:25px">
+                <div class="row align-items-start">
+                    <div class="col">
+                      <label for="Nombre_Mascota">Tipo de mascota: @item.ID_Type</label> <br>
+                      <label for="FechaNacimiento">Fecha de nacimiento: @item.BrithdayDate </label>
+                    </div>
+                    <div class="col">
+                       <label for="NombreDueño">Nombre del dueño: @item.OwnerName </label>
+                      
+                      <label for="Telefono">Telefono de contacto: @item.OwnerPhone</label> <br>
+                      <label for="Fecha">Fecha de creacion Ficha: @item.CreationDate</label>
+                    </div>
+                </div>
+           </div>
+       }
+            <div class="text-center" >
+               <button type="submit" asp-controller="Mascota" asp-action="Index" class="btn btn-primary">Volver</button>
+            </div>            
+           </form>
+    </div>
+</div>
